@@ -6,6 +6,7 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      //represents initial data e.g. from API
       portfolio: [
         {
           name: "Friendsbook",
@@ -33,6 +34,8 @@ class Portfolio extends React.Component {
         market_price: 0,
       },
     };
+
+    //binds the 'this' keyword to the methods used in this class
     this.removeStock = this.removeStock.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
