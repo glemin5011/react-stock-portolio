@@ -51,6 +51,12 @@ class Portfolio extends React.Component {
                 {portfolio.map((stock, index) => {
                   const { name, shares_owned, cost_per_share, market_price } =
                     stock;
+
+                  const market_value = shares_owned * market_price;
+                  const unrealized_gain_loss =
+                    market_value - shares_owned * cost_per_share;
+
+                  //underscore style for consistency
                   return (
                     <tr key={index}>
                       <td>{name}</td>
@@ -75,8 +81,8 @@ class Portfolio extends React.Component {
                           value={market_price}
                         />
                       </td>
-                      <td></td>
-                      <td></td>
+                      <td>{market_value}</td>
+                      <td>{unrealized_gain_loss}</td>
                       <td>
                         <button className="btn btn-light btn-sm">Remove</button>
                       </td>
